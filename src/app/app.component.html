@@ -1,0 +1,25 @@
+<style>
+  .form {
+    margin: 120px 0;
+  }
+</style>
+
+<div class="container">
+  <div class="border p-4 w-50 mx-auto form">
+    <div class="header">
+      <h1 class="text-center">Login</h1>
+    </div>
+    <form [formGroup]='loginForm'>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" placeholder="Enter your Email address" formControlName="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter your Password" formControlName="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-info w-100" (click)="loginUser(loginForm.value)">submit</button>
+    </form>
+  </div>
+</div>
+<router-outlet></router-outlet>
