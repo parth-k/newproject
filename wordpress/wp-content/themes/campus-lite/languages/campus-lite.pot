@@ -1,0 +1,242 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Campus Lite\n"
+"POT-Creation-Date: 2017-03-09 17:26+0530\n"
+"PO-Revision-Date: 2017-03-09 17:26+0530\n"
+"Last-Translator: \n"
+"Language-Team: Flythemes Team <support@flythemes.net>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: 404.php:14
+msgid "<strong>404</strong> Not Found"
+msgstr ""
+
+#: 404.php:17
+msgid ""
+"Looks like you have taken a wrong turn.....<br />Do Not worry... it happens "
+"to the best of us."
+msgstr ""
+
+#: comments.php:54
+msgid "Comments are closed."
+msgstr ""
+
+#: content-page.php:18
+#: content-single.php:28
+#: content.php:36
+#: image.php:64
+msgid "Pages:"
+msgstr ""
+
+#: content-page.php:23
+#: content-single.php:40
+#: content.php:70
+#: image.php:33
+#: image.php:70
+msgid "Edit"
+msgstr ""
+
+#: content-single.php:33
+#: content.php:14
+#: content.php:47
+#: content.php:57
+msgid ", "
+msgstr ""
+
+#: content-single.php:34
+msgid " | Tags: "
+msgstr ""
+
+#: content.php:29
+msgid "Read More &raquo;"
+msgstr ""
+
+#: content.php:33
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: content.php:51
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: content.php:61
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: content.php:67
+msgid "Leave a comment"
+msgstr ""
+
+#: content.php:67
+msgid "1 Comment"
+msgstr ""
+
+#: content.php:67
+msgid "% Comments"
+msgstr ""
+
+#: footer.php:15
+msgid "Y"
+msgstr ""
+
+#: footer.php:15
+msgid "Powered by WordPress"
+msgstr ""
+
+#: front-page.php:48
+#: front-page.php:75
+#: inc/customizer.php:97
+msgid "Read More"
+msgstr ""
+
+#: functions.php:32
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:45
+msgid "Blog Sidebar"
+msgstr ""
+
+#: functions.php:46
+msgid "Appears on blog page sidebar"
+msgstr ""
+
+#: functions.php:55
+msgid "Header left Top"
+msgstr ""
+
+#: functions.php:56
+msgid "Appears left side of top bar."
+msgstr ""
+
+#: functions.php:64
+msgid "Header Right Top"
+msgstr ""
+
+#: functions.php:65
+msgid "Appears right side of top bar."
+msgstr ""
+
+#: header.php:41
+msgid "Menu"
+msgstr ""
+
+#: image.php:23
+#, php-format
+msgid ""
+"Published <span class=\"entry-date\"><time class=\"entry-date\" datetime="
+"\"%1$s\">%2$s</time></span> at <a href=\"%3$s\">%4$s &times; %5$s</a> in <a "
+"href=\"%6$s\" rel=\"gallery\">%7$s</a>"
+msgstr ""
+
+#: image.php:38
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
+
+#: image.php:39
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: no-results.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: no-results.php:19
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: no-results.php:23
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: no-results.php:28
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: search.php:15
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: sidebar.php:12
+msgid "Archives"
+msgstr ""
+
+#: sidebar.php:18
+msgid "Meta"
+msgstr ""
+
+#: inc/customizer.php:30
+msgid "Color Scheme"
+msgstr ""
+
+#: inc/customizer.php:31
+msgid "Select color from here."
+msgstr ""
+
+#: inc/customizer.php:44
+msgid "Select color for facility box title and button."
+msgstr ""
+
+#: inc/customizer.php:54
+msgid "Slider Settings"
+msgstr ""
+
+#: inc/customizer.php:56
+msgid "Recommended image size (1420x567)"
+msgstr ""
+
+#: inc/customizer.php:68
+msgid "Select page for slide one:"
+msgstr ""
+
+#: inc/customizer.php:80
+msgid "Select page for slide two:"
+msgstr ""
+
+#: inc/customizer.php:92
+msgid "Select page for slide three:"
+msgstr ""
+
+#: inc/customizer.php:102
+msgid "Add slider link button text."
+msgstr ""
+
+#: inc/customizer.php:117
+msgid "Check this to hide slider and facility boxes."
+msgstr ""
+
+#: inc/customizer.php:127
+msgid "Facilities Section"
+msgstr ""
+
+#: inc/customizer.php:129
+msgid "Select pages from facility boxes."
+msgstr ""
+
+#: inc/customizer.php:141
+msgid "Select page for box 1:"
+msgstr ""
+
+#: inc/customizer.php:153
+msgid "Select page for box 2:"
+msgstr ""
+
+#: inc/customizer.php:165
+msgid "Select page for box 3:"
+msgstr ""

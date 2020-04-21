@@ -1,0 +1,38 @@
+
+# BEGIN WordPress
+# The directives (lines) between `BEGIN WordPress` and `END WordPress` are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /wordpress/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wordpress/index.php [L]
+</IfModule>
+
+# END WordPress
+
+	# WP Increse Maximum Execution Time
+
+	<IfModule mod_php5.c>
+
+		php_value max_execution_time 300
+
+	</IfModule>
+	<ifmodule mod_headers.c="">
+   SetEnvIf Origin "^(..domain.com)$" ORIGIN_SUB_DOMAIN=$1
+   Header set Access-Control-Allow-Origin "%{ORIGIN_SUB_DOMAIN}e" env=ORIGIN_SUB_DOMAIN
+   Header set Access-Control-Allow-Methods: ""
+   Header set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+</ifmodule>
+<IfModule mod_headers.c>
+  <FilesMatch ".(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+	# WP Increse Maximum Execution Time
+	<IfModule mod_php5.c>
+		php_value max_execution_time 300
+	</IfModule>

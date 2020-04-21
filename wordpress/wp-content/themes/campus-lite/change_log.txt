@@ -1,0 +1,22 @@
+Version 1.0
+i) Intial version Release
+
+Version 1.1
+i) Added proper styling and removed unused functions.
+
+Version 1.2
+i) Added correct theme url.
+
+Version 1.2.1
+i) Resolved few css issue for theme layout.
+
+Version 1.2.2
+i) Added images links in readme file, screenshot changed and resolved few css issue.
+
+Version 1.2.3
+i) Removed few errors from files.
+
+Version 1.2.4
+i) Resolved error from slider caption.
+
+
