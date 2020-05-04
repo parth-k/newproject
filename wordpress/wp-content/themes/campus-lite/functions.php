@@ -205,19 +205,25 @@ function register_api_hooks() {
 }
 
 function login($request){
-	$creds = array();
+	session_start();
 	$creds['user_login'] = $request["username"];
 	$creds['user_password'] =  $request["password"];
-	$creds['remember'] = true;
-	$user = wp_signon( $creds, false );
+	// $creds['remember'] = true;
+	$_SESSION['se_login'] = $creds['user_login'];
+	$_SESSION['se_password'] = $creds['user_password'];
+  // $creds['remember'] = true;
 
+  // echo $_SESSION['se_login'];
+  // echo $_SESSION['se_password'];
+
+	$user=wp_signon($creds,false);
 	if ( is_wp_error($user) )
 		echo $user->get_error_message();
 
 	return $user;
 }
 
-add_action( 'after_setup_theme', 'custom_login' );
+// add_action( 'after_setup_theme', 'custom_login' );s
 
 function add_cors_http_header(){
 	header("Access-Control-Allow-Origin: *");
@@ -232,49 +238,7 @@ function add_allowed_origins($origins) {
 }
 
 
-// add_action( 'rest_api_init', 'register_api_hooks_Events');
 
-
-// function register_api_hooks_Events() {
-// 	register_rest_route(
-// 		'custom-plugin', '/booking/',
-// 		array(
-// 			'methods'  => 'POST',
-// 			'callback' => 'booking',
-// 		)
-// 	);
-// }
-
-// function Events($request){
-// 	$creds = array();
-// 	$creds['user_Event_name'] = $request["Event_name"];
-// 	$creds['user_phone_no'] =  $request["phone_no"];
-// 	$creds['user_email'] = $request["username"];
-// 	$creds['user_date'] = $request["date"];
-// 	$creds['user_time'] = $request["time"];
-// 	$creds['user_events'] = $request["events"];
-// 	$creds['user_address'] = $request["address"];
-// 	$creds['remember'] = true;
-// 	$user =wp_posts( $creds, false );
-
-// 	if ( is_wp_error($user) )
-// 		echo $user->get_error_message();
-
-// 	return $user;
-// }
-
-// add_action( 'after_setup_theme', 'custom_Events_booking' );
-// function add_cors_http_header(){
-// 	header("Access-Control-Allow-Origin: *");
-// }
-// add_action('init','add_cors_http_header');
-
-// add_filter('allowed_http_origins', 'add_allowed_origins');
-
-// function add_allowed_origins($origins) {
-// 	$origins[] = 'https://www.yourdomain.com/';
-// 	return $origins;
-// }
 
 
 
@@ -289,46 +253,113 @@ function register_api_hooks_booking() {
 	);
 }
 function Event_booking($request){
-	// $field = array();
+	$nm=$_POST['post_title'];//username
+	$mt=$_POST['post_mime_type'];//user mobile number
+	$em=$_POST['post_content'];//user email address
+	$dt=$_POST['post_date'];//event date
+	$name=$_POST['post_name'];// event name
+	$pinged = $_POST['pinged'];
+  // echo $userID;
 
-	// $con = mysqli_connect('localhost','root','','schoolsite');
 
-	// $qy= "INSERT INTO wp_posts (post_content , post_title , post_date , post_name)
-	//  VALUES ('raj sir','8140430000','05-May-2020','science class')";
-
-	// if ($con->query($qy) === TRUE) {
-	// 	echo "New record created successfully";
-	// } 
-	// else {
-	// 	echo "Error: " . $qy . "<br>" . $con->error;
-	// }
- //    // $user = wp_posts( $creds, false );
-	// if ( is_wp_error($user) )
-	// 	echo $user->get_error_message();
-	// return $user;
-	$nm=$_POST['post_title'];
-	// $no=$_POST['mo_no'];
-	// $em=$_POST['email'];
-	$dt=$_POST['post_date'];
-	// $tm=$_POST['post_date_gmt'];
-	$co=$_POST['post_content'];
-
-	$con = mysqli_connect('localhost','root','','schoolsite');
-
-	$qy= "INSERT INTO wp_posts (post_title , post_content,post_date) 
-	VALUES ('$nm' , '$co','$dt')";
-
-	if ($con->query($qy) === TRUE) {
-		echo "New record created successfully";
-	} 
-	else {
-		echo "Error: " . $qy . "<br>" . $con->error;
+	if($nm == "" || !preg_match("/^[a-z]+$/", $nm) || $mt == "" || !preg_match("/^[0-9]{10}$/", $mt) || $em == "" || 
+		!preg_match("/^[a-zA-Z0-9.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/", $em) || $dt == "")
+	{
+		$required = "BAD Request";
+		http_response_code(400);
+		echo $required;
+		exit;
+  // echo "All Fields Are Reqiuired";
 	}
-	$field = file_get_contents('php://input');
-	echo $field;
-	$object = json_decode($field);
-	echo ($object);
+	else{
 
+		$con = mysqli_connect('localhost','root','','schoolsite');
+
+
+		$qy= "INSERT INTO wp_posts (pinged, post_title , post_content, post_date, post_name, post_mime_type) 
+		VALUES ('$pinged','$nm','$em','$dt','$name','$mt')";		
+		if ($con->query($qy) === TRUE) {
+		$abc =mysqli_insert_id($con);
+
+			echo "ID:".$abc."Name:".$nm."Mobile_No.".$mt."Email".$em."Date-Time".$dt."Event_name".$name ;
+		} 
+		else {
+			echo "Error: " . $qy . "<br>" . $con->error;
+		}
+	}
 }
-add_action( 'after_setup_theme', 'custom_booking' );
+// add_action( 'after_setup_theme', 'custom_booking' );
+add_action( 'rest_api_init', 'logoutfn' );
 
+function logoutfn() {
+	register_rest_route(
+		'custom-plugin', '/logout/',
+		array(
+			'methods'  => 'GET',
+			'callback' => 'logout')
+	);
+}
+function logout(){
+	// echo "logout user";
+	session_destroy();
+}
+
+
+add_action( 'rest_api_init', 'Book_event' );
+
+function Book_event() {
+	register_rest_route(
+		'custom-plugin', '/bevent/',
+		array(
+			'methods'  => 'GET',
+			'callback' => 'bevent')
+	);
+}
+	// $pinged = $_GET['pinged'];
+
+ //   $conn = mysqli_connect('localhost','root','','schoolsite');
+
+ //    $sql = "SELECT  ID, post_title, post_mime_type , post_content , post_date , post_name, pinged FROM wp_posts 
+ //    WHERE pinged = '1'";
+ //    $result = $conn->query($sql);
+ //    if ($result->num_rows > 0) {
+ //        while($row = $result->fetch_assoc()) {
+ //            print json_encode($row);
+ //            exit();
+ //        }
+ //    } else {
+ //        echo "0 results";
+ //    }
+
+function bevent($request){
+	$pinged = $_GET['pinged'];
+    // echo $userID;
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "schoolsite";
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	$sql = "SELECT ID , post_title , post_content , post_name , post_date, post_mime_type FROM wp_posts WHERE pinged = $pinged";
+	$result = mysqli_query($conn, $sql);
+
+	if (mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)) {
+			$sql = "SELECT ID , post_title , post_content , post_name , post_date , post_mime_type FROM wp_posts WHERE pinged = $pinged";
+			// echo "id: "   . $row["ID"]. "\n".
+			// "name: "   . $row["post_title"]. "\n".
+			// "email:"   . $row["post_content"]. "\n".
+			// "phone: "  . $row["post_mime_type"].  "\n".
+			// "date: "   . $row["post_date"]. "\n".
+			// "event_name: " . $row["post_name"]. "\n";
+            echo json_encode($row);
+			
+		} 
+	}else 
+		{
+            // echo "This User is not valid to see his bookings"; 
+		} 
+	}

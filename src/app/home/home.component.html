@@ -1,0 +1,142 @@
+<!-- <p routerLink="/events">click here</p> -->
+
+<style>
+    .backimg {
+        background-image: url(assets/images/schol.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: fixed;
+        height: 500px;
+    }
+
+    .abc {
+        padding-top: 400px;
+        padding-left: 4px;
+        color: black;
+    }
+
+    .abcd {
+        padding-left: 4px;
+        color: black;
+    }
+
+    .abus {
+        padding-left: 560px;
+        color: coral;
+    }
+
+    .row {
+        padding: 0;
+        margin: 0;
+    }
+
+    .card-title {
+        color: darkblue;
+    }
+</style>
+<div class="maincls">
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#">ABC ENGLISH MEDIUM SCHOOL</a>
+
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Log out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/events">Add events</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="backimg">
+        <h1 class="abc">ABC ENGLISH MEDIUM SCHOOL</h1>
+        <p class="abcd">This article is about institutions for learning.</p>
+    </div>
+    <div class="about">
+        <h1 class="abus">About Us</h1>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">THE ARTS</h4>
+                        <p class="card-text">Always among the highest expression of every culture,
+                            the arts teach us much about every historical period through its literature,
+                            visual arts, music, dance, and drama</p>
+                        <a href="#" class="card-link">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">FACILITES</h4>
+                        <p class="card-text">The classrooms are well ventilated. The library houses a fine set of
+                            reference,
+                            fiction and non-fiction books that caters to the varying reading levels of different age
+                            groups.</p>
+                        <a href="#" class="card-link">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">HI-TECH ENVIRONMENT</h4>
+                        <p class="card-text">The school website shall keep you posted of all activities of the school
+                            and important information that will be helpful to you to deal proactively with your
+                            children.</p>
+                        <a href="#" class="card-link">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="events">
+        <h1 class="abus mt-5 mb-5">EVENTS</h1>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="assets/images/6.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">sports Day</h4>
+                        <p class="card-text">Sports days (British English) or field days (American English) are events
+                            staged by many schools and offices in which people participate in competitive sporting
+                            activities,
+                            often with the aim of winning trophies or prizes.</p>
+                        <a href="#" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="assets/images/5.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Republic Day</h4>
+                        <p class="card-text">The Constitution was adopted by the Indian Constituent Assembly on 26
+                            November 1949 and came into effect on 26 January 1950 with a democratic government system
+                        </p>
+                        <a href="#" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="assets/images/7.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title">Navratri Day</h4>
+                        <p class="card-text">Garba is a form of dance which originated in the state of Gujarat in India.
+                            The name is derived from the Sanskrit term Garbha (“womb”) and Deep (“a small earthenware
+                            lamp”). Many traditional garbas are performed around centrally lit lamp or a picture</p>
+                        <a href="#" class="btn btn-primary">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

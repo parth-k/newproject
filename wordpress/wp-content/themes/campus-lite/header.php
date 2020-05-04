@@ -45,7 +45,7 @@
                             </div><!-- nav --><div class="clear"></div>
                     </div><!-- header-inner -->
             </div><!-- header -->
-            <?php
+                        <?php
 add_filter( 'wp_headers', array( 'eg_send_cors_headers' ), 11, 1 );
 function eg_send_cors_headers( $headers ) {
 

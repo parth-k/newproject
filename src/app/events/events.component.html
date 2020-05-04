@@ -1,0 +1,75 @@
+<style>
+    .frm {
+        background-color:darkblue;
+        margin-left: 50%;
+    }
+    .btnn {
+        text-align: center;
+    }
+</style>
+<div class="row m-0 p-0">
+    <div class="frm px-5 py-2 mx-auto">
+        <h2 class="margin l_class text-white text-center my-4">Event Booking Form</h2>
+        <form [formGroup]='Eventgroup' method="POST" (ngSubmit)="onSubmit()" #myForm="ngForm">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control rounded-sm w-100 p-2 pl-1 border-0"
+                         placeholder="Name" formControlName="post_title" name="name" required  
+                         [ngClass]="{ 'is-invalid': submitted && f.post_title.errors }">
+                         <div *ngIf="submitted && f.post_title.errors" class="invalid-feedback">
+                             <div *ngIf="f.post_title.errors.required">name is required</div>
+                            <div *ngIf="f.post_title.errors.pattern">Please, Enter a valid Name.</div>
+                         </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control rounded-sm w-100 p-2 pl-1 border-0"
+                        placeholder="Phone No." formControlName="post_mime_type"  name="phone_no" required
+                        [ngClass]="{ 'is-invalid': submitted && f.post_mime_type.errors }">
+                        <div *ngIf="submitted && f.post_mime_type.errors" class="invalid-feedback">
+                            <div *ngIf="f.post_mime_type.errors.required">phone_no is required</div>
+                            <div *ngIf="f.post_mime_type.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control rounded-sm mt-2 w-100 pl-1 p-2 border-0"
+                    placeholder="Email Id" formControlName="post_content" name="username" required
+                    [ngClass]="{ 'is-invalid': submitted && f.post_content.errors }">
+                    <div *ngIf="submitted && f.post_content.errors" class="invalid-feedback">
+                        <div *ngIf="f.post_content.errors.required">Email address is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <input type="datetime-local"class="form-control rounded-sm w-100 p-2 mt-4 pl-1 border-0"
+                        placeholder="date" formControlName="post_date" id="birthdaytime" name="birthdaytime"
+                         required [ngClass]="{ 'is-invalid': submitted && f.post_date.errors }">
+                         <div *ngIf="submitted && f.post_date.errors" class="invalid-feedback">
+                            <div *ngIf="f.post_date.errors.required">dateandtime is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control rounded-sm w-100 p-2 pl-1 border-0"
+                         placeholder="Event Name" formControlName="post_name"required
+                         [ngClass]="{ 'is-invalid': submitted && f.post_name.errors }">
+                         <div *ngIf="submitted && f.post_name.errors" class="invalid-feedback">
+                            <div *ngIf="f.post_name.errors.required">Name is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+            <div class="btnn"><button type="submit"[disabled]="!myForm.form.valid" (click) ="events(Eventgroup.value)" class="btn py-2 w-50 mt-4 text-white mb-3 btn-warning mt-3 px-5">Book Event</button>   
+            </div>
+        </form>
+  </div>
+</div>  
+<router-outlet></router-outlet>
