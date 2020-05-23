@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="border p-4 w-50  form">
+        <countdown  [ngClass]="timerColor()"  [config]="config " (event)="firstEvent($event)"></countdown>
+        <div class="header">
+            <!-- <h1 class="text-center">SEND OTP</h1> -->
+        </div>
+        <form [formGroup]='OTPForm'>
+            <div class="form-group">
+                <label><h1>OTP:</h1></label>
+                <input id="partitioned" type="text" maxlength="6" formControlName="otp" />
+            </div>
+            <button type="submit" class="btn btn-info w-25  mb-3" (click)="Done(OTPForm.value)">Done</button>
+        </form>
+    <!-- </div> -->
+</div>
+<router-outlet></router-outlet>

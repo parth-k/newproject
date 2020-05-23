@@ -43,10 +43,13 @@
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">Log out</a>
+                    <a class="nav-link" routerLink="/login" (click)="logout()">Log out</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/events">Add events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/eventshow">showbookevents</a>
                 </li>
             </ul>
         </nav>
@@ -95,7 +98,7 @@
             </div>
         </div>
     </div>
-    <div class="events">
+    <div class="events mb-5">
         <h1 class="abus mt-5 mb-5">EVENTS</h1>
         <div class="row">
             <div class="col-sm-4">
@@ -105,8 +108,7 @@
                         <h4 class="card-title">sports Day</h4>
                         <p class="card-text">Sports days (British English) or field days (American English) are events
                             staged by many schools and offices in which people participate in competitive sporting
-                            activities,
-                            often with the aim of winning trophies or prizes.</p>
+                            activities.</p>
                         <a href="#" class="btn btn-primary">READ MORE</a>
                     </div>
                 </div>
@@ -130,7 +132,7 @@
                         <h4 class="card-title">Navratri Day</h4>
                         <p class="card-text">Garba is a form of dance which originated in the state of Gujarat in India.
                             The name is derived from the Sanskrit term Garbha (“womb”) and Deep (“a small earthenware
-                            lamp”). Many traditional garbas are performed around centrally lit lamp or a picture</p>
+                            lamp”). Many traditional garbas are performed around centrally lit lamp/p>
                         <a href="#" class="btn btn-primary">READ MORE</a>
                     </div>
                 </div>
@@ -138,5 +140,6 @@
         </div>
     </div>
 </div>
-
+<app-events></app-events>
+<!-- <app-eventshow></app-eventshow> -->
 <router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+<style>
+    .form {
+      margin: 120px 0;
+    }
+    .abc {
+      margin-left: 60px;
+    }
+  </style>
+  
+  <div class="container">
+    <div class="border p-4 w-50 mx-auto form">
+      <div class="header">
+        <h1 class="text-center">change password</h1>
+      </div>
+      <form [formGroup]='forgotpassForm'>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" placeholder="Enter your Email address" formControlName="user_email" name="username" required>
+        </div>
+        <div class="form-group">
+            <label>New password:</label>
+            <input type="password" class="form-control" placeholder="Enter your new password" formControlName="user_pass" name="username" required>
+          </div>
+        <button type="submit" class="btn btn-info w-50 abc mb-3"(click)="forgotpass(forgotpassForm.value)">submit</button>
+      </form>
+    </div>    
+  </div>
+  <router-outlet></router-outlet>

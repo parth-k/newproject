@@ -11,7 +11,7 @@ import { ApiService } from '../api.service';
 export class LoginComponent {
 
 loginForm: FormGroup;
-  jsonapifile : any 
+  jsonapifile : any  = [];
   constructor(private router: Router, private http:HttpClient ,private service:ApiService) {
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
@@ -23,8 +23,10 @@ loginForm: FormGroup;
     this.http.get(`http://localhost/wordpress/wp-json/custom-plugin/login?username=${value.username}&password=${value.password}`)
     .subscribe(data => {
       this.jsonapifile = data
+      localStorage.setItem('user_email', JSON.stringify(this.jsonapifile.data.user_email));
+      localStorage.setItem('ID', JSON.stringify(this.jsonapifile.ID));
       console.log("Success", this.jsonapifile),
-      this.router.navigate(['home'], { state: value }) 
+      this.router.navigate(['home'], { state: value}) 
 
     },
     error => {

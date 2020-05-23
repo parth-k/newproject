@@ -18,7 +18,9 @@
           <label for="pwd">Password:</label>
           <input type="password" class="form-control" placeholder="Enter your Password" formControlName="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-info w-100" (click)="loginUser(loginForm.value)">login</button>
+        <button type="submit" class="btn btn-info w-100 mb-3" (click)="loginUser(loginForm.value)">LOGIN</button>
+        <button type="submit" class="btn btn-dark w-100" routerLink="/newuserlogin">SIGNUP</button>
+        <a routerLink="/forgot" >Forgot Password</a>
       </form>
     </div>    
   </div>

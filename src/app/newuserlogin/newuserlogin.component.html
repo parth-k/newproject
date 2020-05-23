@@ -1,0 +1,31 @@
+<div class="signup-form">
+    <form [formGroup]='newuserForm'>
+        <h2>Create Account</h2>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" formControlName="user_login" name="username" placeholder="Username" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="email" class="form-control" formControlName="user_email" name="email" placeholder="Email Address" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="password" class="form-control" formControlName="user_pass" name="password" placeholder="Password" required="required">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                </span>
+                <input type="text" class="form-control" formControlName="user_nicename" name="nicename" placeholder="NiceName">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" (click)="newuser(newuserForm.value)">Sign Up</button>
+        </div>
+    </form>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,236 @@
+<style>
+   button {
+      margin-left: 50px;
+   }
+</style>
+<mat-tab-group mat-align-tabs="center">
+   <mat-tab label="confirmed">
+      <ng-template matTabContent>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>MobileNO.</th>
+                  <th>Email</th>
+                  <th>Date</th>
+                  <th>Event-name</th>
+                  <th>status</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of confirmed">
+                  <td>{{item.id}}</td>
+                  <td>{{ item.post_title }}</td>
+                  <td>{{ item.post_mime_type }}</td>
+                  <td>{{ item.post_content }}</td>
+                  <td>{{ item.post_date }}</td>
+                  <td>{{ item.post_name }}</td>
+                  <td>{{ item.post_status }}</td>
+                  <span class="material-icons mt-3">
+                     done_outline
+                     </span>
+                  <td><button [disabled]="btnDisabled" type="submit" class="btn btn-info w-75"
+                        (click)="update(item)">edit</button></td>
+                  <td><button [disabled]="btnDisabled" type="submit" class="btn btn-danger w-75"
+                        (click)="delete(item.id)">delete</button></td>
+               </tr>
+               <tr *ngFor="let item of MSG">
+                  <td>{{item.id}}</td>
+                  <td>{{ item.post_title }}</td>
+                  <td>{{ item.post_mime_type }}</td>
+                  <td>{{ item.post_content }}</td>
+                  <td>{{ item.post_date }}</td>
+                  <td>{{ item.post_name }}</td>
+                  <td>{{ item.post_status }}</td>
+                  <span class="material-icons mt-3">
+                     done_outline
+                     </span>
+                  <td><button [disabled]="btnDisabled" type="submit" class="btn btn-info w-75"
+                        (click)="update(item)">edit</button></td>
+                  <td><button [disabled]="btnDisabled" type="submit" class="btn btn-danger w-75"
+                        (click)="delete(item.id)">delete</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </ng-template>
+   </mat-tab>
+   <mat-tab label="pending">
+      <ng-template matTabContent>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>MobileNO.</th>
+                  <th>Email</th>
+                  <th>Date</th>
+                  <th>Event-name</th>
+                  <th>status</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of pending">
+                  <td>{{item.id}}</td>
+                  <td>{{ item.post_title }}</td>
+                  <td>{{ item.post_mime_type }}</td>
+                  <td>{{ item.post_content }}</td>
+                  <td>{{ item.post_date }}</td>
+                  <td>{{ item.post_name }}</td>
+                  <td>{{ item.post_status }}</td>
+                  <span class="material-icons mt-3">
+                     schedule
+                     </span>
+                  <td><button type="submit" class="btn btn-info w-75" (click)="update(item)">edit</button></td>
+                  <td><button type="submit" class="btn btn-danger w-75" (click)="delete(item.id)">delete</button></td>
+               </tr>
+               <tr *ngFor="let item of MSG">
+                  <td>{{item.id}}</td>
+                  <td>{{ item.post_title }}</td>
+                  <td>{{ item.post_mime_type }}</td>
+                  <td>{{ item.post_content }}</td>
+                  <td>{{ item.post_date }}</td>
+                  <td>{{ item.post_name }}</td>
+                  <td>{{ item.post_status }}</td>
+                  <span class="material-icons mt-3">
+                     schedule
+                     </span>
+                  <td><button type="submit" class="btn btn-info w-75" (click)="update(item)">edit</button></td>
+                  <td><button type="submit" class="btn btn-danger w-75" (click)="delete(item.id)">delete</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </ng-template>
+   </mat-tab>
+   <mat-tab label="canceled">
+      <ng-template matTabContent>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>MobileNO.</th>
+                  <th>Email</th>
+                  <th>Date</th>
+                  <th>Event-name</th>
+                  <th>status</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of canceled">
+                  <td>{{item.id}}</td>
+                  <td>{{ item.post_title }}</td>
+                  <td>{{ item.post_mime_type }}</td>
+                  <td>{{ item.post_content }}</td>
+                  <td>{{ item.post_date }}</td>
+                  <td>{{ item.post_name }}</td>
+                  <td>{{ item.post_status }}</td>
+                  <span class="material-icons mt-3">
+                     cancel
+                     </span>
+                  <td><button [disabled]="btnDisabled" type="submit" class="btn btn-info w-75"
+                        (click)="update(item)">edit</button></td>
+                  <td><button [disabled]="btnDisabled" type="submit" class="btn btn-danger w-75"
+                        (click)="delete(item.id)">delete</button></td>
+               </tr>
+               <tr *ngFor="let item of MSG">
+                  <td>{{item.id}}</td>
+                  <td>{{ item.post_title }}</td>
+                  <td>{{ item.post_mime_type }}</td>
+                  <td>{{ item.post_content }}</td>
+                  <td>{{ item.post_date }}</td>
+                  <td>{{ item.post_name }}</td>
+                  <td>{{ item.post_status }}</td>
+                  <span class="material-icons mt-3">
+                     done_outline
+                     </span>
+                  <td><button [disabled]="btnDisabled" type="submit" class="btn btn-info w-75"
+                        (click)="update(item)">edit</button></td>
+                  <td><button [disabled]="btnDisabled" type="submit" class="btn btn-danger w-75"
+                        (click)="delete(item.id)">delete</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </ng-template>
+   </mat-tab>
+   <mat-tab label="ALL Data">
+      <ng-template matTabContent>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>MobileNO.</th>
+                  <th>Email</th>
+                  <th>Date</th>
+                  <th>Event-name</th>
+                  <th>status</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of events">
+                  <td>{{item.id}}</td>
+                  <td>{{ item.post_title }}</td>
+                  <td>{{ item.post_mime_type }}</td>
+                  <td>{{ item.post_content }}</td>
+                  <td>{{ item.post_date }}</td>
+                  <td>{{ item.post_name }}</td>
+                  <td>{{ item.post_status }}</td>
+                  <td><button type="submit" class="btn btn-info w-75" (click)="update(item)">edit</button></td>
+                  <td><button type="submit" class="btn btn-danger w-75" (click)="delete(item.id)">delete</button></td>
+               </tr>
+               <tr *ngFor="let item of MSG">
+                  <td>{{item.id}}</td>
+                  <td>{{ item.post_title }}</td>
+                  <td>{{ item.post_mime_type }}</td>
+                  <td>{{ item.post_content }}</td>
+                  <td>{{ item.post_date }}</td>
+                  <td>{{ item.post_name }}</td>
+                  <td>{{ item.post_status }}</td>
+                  <td><button type="submit" class="btn btn-info w-75" (click)="update(item)">edit</button></td>
+                  <td><button type="submit" class="btn btn-danger w-75" (click)="delete(item.id)">delete</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </ng-template>
+   </mat-tab>
+</mat-tab-group>
+
+<!-- <table class="table">
+    <thead>
+       <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>MobileNO.</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Event-name</th>
+          <th>status</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let item of events">
+          <td>{{item.id}}</td>
+          <td>{{ item.post_title }}</td>
+          <td>{{ item.post_mime_type }}</td>
+          <td>{{ item.post_content }}</td>
+          <td>{{ item.post_date }}</td>
+          <td>{{ item.post_name }}</td>
+          <td>{{ item.post_status }}</td>
+          <td><button type="submit" class="btn btn-info w-75"   (click)= "update(item)">edit</button></td>
+          <td><button type="submit" class="btn btn-danger w-75" (click) = "delete(item.id)">delete</button></td>
+       </tr>
+       <tr *ngFor="let item of MSG">
+         <td>{{item.id}}</td>
+         <td>{{ item.post_title }}</td>
+         <td>{{ item.post_mime_type }}</td>
+         <td>{{ item.post_content }}</td>
+         <td>{{ item.post_date }}</td>
+         <td>{{ item.post_name }}</td>
+         <td>{{ item.post_status }}</td>
+         <td><button type="submit" class="btn btn-info w-75" (click)= "update(item)">edit</button></td>
+         <td><button type="submit" class="btn btn-danger w-75" (click) = "delete(item.id)">delete</button></td>
+      </tr>
+    </tbody>
+ </table> -->
+<router-outlet></router-outlet>
